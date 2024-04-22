@@ -3,17 +3,6 @@ This repo contains examples of computer vision methods with OpenCV in c++, curat
 
 # Installation
 Work environment: Ubuntu 22
-- install compiler and build tools
-```
-sudo apt install -y g++
-```
-```
-sudo apt install -y cmake
-```
-```
-sudo apt install -y wget unzip
-```
-
 - install OpenCV
 ```
 sudo apt install libopencv-dev
