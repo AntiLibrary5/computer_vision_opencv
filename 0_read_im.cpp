@@ -21,7 +21,7 @@ int main(){
     int k = cv::waitKey(0);
     // optionally save im
     if(k == 's'){
-        cv::imwrite("dog.png", img);
+        cv::imwrite("ims/dog.png", img);
     }
     return 0;
 }
