@@ -5,6 +5,9 @@
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
+#include <opencv2/opencv.hpp>
+
+using namespace cv;
 
 int main(){
     // im path
@@ -19,9 +22,11 @@ int main(){
     // show im
     imshow("Display Window", img);
     int k = cv::waitKey(0);
-    // optionally save im
+    // optionally save im in grayscale
     if(k == 's'){
-        cv::imwrite("ims/dog.png", img);
+        Mat gray;
+        cvtColor(img, gray, COLOR_BGR2GRAY);
+        cv::imwrite("ims/sample_gray.png", gray);
     }
     return 0;
 }
