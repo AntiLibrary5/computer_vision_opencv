@@ -31,6 +31,8 @@ static void Threshold_Demo( int, void* )
     3: Threshold to Zero
     4: Threshold to Zero Inverted
     */
+    threshold_type = getTrackbarPos( trackbar_type, window_name );
+    threshold_value = getTrackbarPos( trackbar_value, window_name );
     threshold( src_gray, dst, threshold_value, max_binary_value, threshold_type );
     imshow( window_name, dst );
 }
@@ -55,11 +57,11 @@ int main( int argc, char** argv )
     namedWindow( window_name, WINDOW_AUTOSIZE ); // Create a window to display results
 
     createTrackbar( trackbar_type,
-                    window_name, &threshold_type,
+                    window_name, NULL,
                     max_type, Threshold_Demo ); // Create a Trackbar to choose type of Threshold
 
     createTrackbar( trackbar_value,
-                    window_name, &threshold_value,
+                    window_name, NULL,
                     max_value, Threshold_Demo ); // Create a Trackbar to choose Threshold value
 
     Threshold_Demo( 0, 0 ); // Call the function to initialize
