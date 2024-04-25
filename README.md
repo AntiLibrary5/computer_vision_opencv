@@ -1,10 +1,13 @@
 # About
-This repo contains examples of computer vision methods with OpenCV in c++, curated from OpenCV examples from `https://docs.opencv.org/4.x/d9/df8/tutorial_root.html` 
+This repo contains examples of computer vision methods mostly with OpenCV in C++, curated from 
+- OpenCV examples `https://docs.opencv.org/4.x/d9/df8/tutorial_root.html` and
+- the book `Visual SLAM: From Theory to Practice, by X. Gao et al.`
 
-# Installation
-Work environment: Ubuntu 22
+# Pre-requisites
+Work environment: Ubuntu 22.0
 
-### Option 1:
+## OpenCV
+### Option 1 (core library):
 - install OpenCV
 ```
 sudo apt install libopencv-dev
@@ -14,7 +17,7 @@ sudo apt install libopencv-dev
 dpkg -l libopencv-dev
 ```
 
-### Option 2 (with contrib modules):
+### Option 2 (with required contrib modules):
 Install minimal prerequisites
 ```angular2html
 sudo apt update && sudo apt install -y cmake g++ wget unzip libcanberra-gtk-module
@@ -41,4 +44,43 @@ cmake --build . -j 5
 Install
 ```angular2html
 sudo make install
+```
+
+## Pangolin
+Clone Pangolin along with it's submodules
+```angular2html
+git clone --recursive https://github.com/stevenlovegrove/Pangolin.git
+cd Pangolin
+```
+Install Homebrew
+```angular2html
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+Run these two commands in your terminal to add Homebrew to your PATH:
+```angular2html
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/varora/.bashrc
+```
+```angular2html
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+```
+Install recommended packages for Pangolin
+```angular2html
+./scripts/install_prerequisites.sh -m brew recommended
+```
+Install Ninja
+```angular2html
+sudo apt install ninja-build
+```
+Configure and build (with Ninja for faster builds)
+```angular2html
+ cmake -B build -GNinja
+```
+```angular2html
+cmake --build build
+```
+
+## Eigen
+Install Eigen
+```angular2html
+sudo apt−get install libeigen3−dev
 ```
